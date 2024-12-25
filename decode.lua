@@ -17,6 +17,8 @@ function parse(s, i)
 		local idx = 1
 		local res = {}
 		i = i + 1
+		if s:sub(i,i) == ')' then return res, i+1 end
+		local v, key
 		while true do
 			if s:sub(i,i) == '[' then
 				i = i + 1
@@ -43,4 +45,3 @@ function parse(s, i)
 		return tonumber(ns), i
 	end
 end
-
